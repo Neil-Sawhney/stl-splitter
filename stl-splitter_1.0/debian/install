@@ -1,0 +1,2 @@
+./usr/bin/stl-splitter usr/bin
+./usr/share/stl-splitter/stl-split-bodies.py usr/share/stl-splitter

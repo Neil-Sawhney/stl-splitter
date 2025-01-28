@@ -1,0 +1,13 @@
+Source: stl-splitter
+Section: utils
+Priority: optional
+Maintainer: Neil Sawhney <Neil@neil-sawhney.com>
+Build-Depends: debhelper (>= 9), blender
+Standards-Version: 4.6.2
+Homepage: https://github.com/<your_github>/stl-splitter (optional)
+
+Package: stl-splitter
+Architecture: all
+Depends: ${misc:Depends}, blender
+Description: STL file splitter
+ This utility splits multi-body STL files into individual STL files.
