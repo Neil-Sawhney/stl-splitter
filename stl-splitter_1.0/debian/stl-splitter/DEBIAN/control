@@ -1,0 +1,11 @@
+Package: stl-splitter
+Version: 1.0
+Architecture: all
+Maintainer: Neil Sawhney <Neil@neil-sawhney.com>
+Installed-Size: 13
+Depends: blender
+Section: utils
+Priority: optional
+Homepage: https://github.com/<your_github>/stl-splitter (optional)
+Description: STL file splitter
+ This utility splits multi-body STL files into individual STL files.

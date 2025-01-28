@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Program name
+PROGRAM_NAME="stl-splitter"
+
+# Function to split STL files
+split_stl() {
+  if [ -z "$1" ]; then
+    echo "Usage: $PROGRAM_NAME <STL_file>"
+    return 1
+  fi
+
+  STL_FILE="$1"
+
+  if [ ! -f "$STL_FILE" ]; then
+    echo "Error: File '$STL_FILE' not found."
+    return 1
+  fi
+
+
+  SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" 
+  blender --background --python "/usr/share/stl-splitter/stl-split-bodies.py" -- "$STL_FILE"
+
+  if [ $? -ne 0 ]; then
+    echo "Error splitting STL file."
+    return 1
+  fi
+
+  echo "STL file split successfully."
+}
+
+
+# Check if being run interactively
+if [[ $- == *i* ]]; then
+    # Interactive mode, show usage if no arguments provided
+    if [ -z "$1" ]; then
+        echo "Usage: $PROGRAM_NAME <STL_file>"
+    else
+      split_stl "$1"
+    fi
+
+else
+    # Non-interactive, just run the function with provided argument
+    split_stl "$1"
+fi
